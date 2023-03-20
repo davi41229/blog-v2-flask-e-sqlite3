@@ -45,13 +45,11 @@
 
 ## bibliotecas
 
-´´´
-pip install flask==2.2.2
-pip install Flask-SQLAlchemy==2.5.0
-pip install sqlalchemy-connector==0.1.37
-pip install SQLAlchemy==1.4.9
+- pip install flask==2.2.2
+- pip install Flask-SQLAlchemy==2.5.0
+- pip install sqlalchemy-connector==0.1.37
+- pip install SQLAlchemy==1.4.9
 
-´´´
 
 ## rodar
 
