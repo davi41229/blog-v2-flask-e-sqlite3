@@ -1,0 +1,115 @@
+{% extends"base.html" %}
+{% block content %}
+   
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="/">Blogger</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item ">
+          <a href="/login" class="btn btn-outline-danger my-2 my-sm-0"> <i class="bi bi-person"></i> Login</a>
+          <a href="/register" class="btn btn-outline-danger my-2 my-sm-0"> <i class="bi bi-person-plus"></i> Cadastrar</a>
+        </li>
+        
+      </ul>
+
+      <form class="d-flex my-2 my-lg-0">
+        <input class="form-control me-sm-2" type="text" placeholder="Pesquisar">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
+</nav><br><br><br>
+
+
+<h1 >Blogger | MSNjá</h1>
+<small class="text-muted">Faça um cadastro para Postar!</small>
+<br>
+<!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-outline-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Selecione a Categoria
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Tecnologia</a></li>
+    <li><a class="dropdown-item" href="#">Contabilidade</a></li>
+    <li><a class="dropdown-item" href="#">Empreendedorismo</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Ultimo Postado</a></li>
+  </ul>
+</div>
+<br><br><br><br>
+
+<div class="row align-items-md-stretch">
+  <div class="row-md-4">
+    <div 
+    style="margin:0px 70px ;  
+    background-image: linear-gradient(to left,  white,gray);"
+      class="h-100 p-5 text-black bg-secondary border rounded-5">
+      {% for post in posts %}
+      <a href="" style="text-decoration: none;">
+        <div class="posts">
+          <h6>Natal-rn {{date_Time}}</h6>
+          <h3>{{post.title}}</h3>
+          <h5>{{post.content}}</h5>
+          <p>Postado por: @{{post.author}}</p><br>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<br><br>
+<small class="text-muted">Crescimento por Categoria</small>
+
+<div style="margin: 0px 100px 0px 100px;height:30px;font-size:1rem;" class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25% Tecnologia</div>
+</div><br>
+<div style="margin: 0px 100px 0px 100px;height:30px;font-size:1rem" class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"> 50% Contabilidade</div>
+</div><br>
+<div style="margin: 0px 100px 0px 100px;height:30px;font-size:1rem" class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> 75% Empreendedorismo</div>
+</div>
+
+
+<div style="padding:30px;margin:50px;background-color:white;color:black;border-radius:20px" 
+
+id="carouselId" class="carousel slide" data-bs-ride="carousel">
+  <!-- <ol class="carousel-indicators">
+    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+  </ol> -->
+  <div class="carousel-inner" role="listbox">
+    <div  class="carousel-item active">
+      <span>"Porque aquele que quiser salvar a sua vida, perdê-la-á, e  <br>quem perder a sua vida por amor de mim, achá-la-á", Jesus Cristo. </span>
+    </div>
+    <div class="carousel-item">
+      <span>"Se cheguei até aqui foi porque <br>me apoiei no ombro dos gigantes", Isaac Newton.</span>
+    </div>
+    <div class="carousel-item">
+      <span>"Não fales aos ouvidos do tolo, <br> porque desprezará a sabedoria das tuas palavras" Proverbios. </span>
+    </div>
+  </div>
+  <button style="background-image: linear-gradient(to left, white,tomato);" 
+  class="carousel-control-prev"type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+    <span   class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span   class="visually-hidden">Previous</span>
+  </button>
+  <button style="background-image: linear-gradient(to left, white,tomato);" 
+  class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+{% endblock %}

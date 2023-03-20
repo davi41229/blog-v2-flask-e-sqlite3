@@ -1,0 +1,20 @@
+{% extends"base.html" %}
+{% block content %}
+  
+  <h1 >Editar Post</h1>
+  <form action="{{ url_for('edit_post', id=post.id)}}" method="post">
+    <label>Title:</label><br>
+    <input name="title" value="{{post.title}}"><br>
+    <label>Author</label><br>
+    <br><input name="author" value="{{post.author}}"><br>
+    <label>Content:</label><br>
+    <br><textarea name="content" id="content" cols="30" rows="10"></textarea><br><br>
+    <input type="submit" value="Edit">
+  </form>
+
+<!-- adicionando o atributo value com JS no textarea -->
+<script>
+    document.getElementById("content").value = "{{post.content}}";
+</script>
+
+{% endblock %}

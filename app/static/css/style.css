@@ -1,0 +1,108 @@
+/* CSS BASE */
+body
+{
+  margin: 0 auto;text-align: center;
+  background-image: linear-gradient(to left, white,tomato);
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden
+}
+small
+{
+  font-size: x-large;
+  font-weight: bold;
+}
+h3
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 2px;
+}
+p
+{
+  font-style: oblique;
+  text-decoration: underline;
+}
+
+/* FIM CSS BASE */
+
+
+/* PAGINA LOGIN */
+#img img
+{
+  width: 200px;
+  height: 200px;
+}
+/* FIM PAGINA LOGIN */
+
+
+/* PAGINA CONTAS*/
+.btn a+a
+{
+    margin-top: 10px;
+}
+
+tbody
+{
+  background-color:white;
+}
+.home
+{
+  margin-bottom: 200px;
+}
+/* FIM PAGINA CONTAS */
+
+.cadastro
+{
+  margin-bottom: 200px;
+}
+/* PAGINA PERFIL */
+.logado
+{
+  margin-bottom: 100px;
+}
+.sociais
+{
+  display: block;
+  list-style: none;
+  margin-bottom: 50px;
+
+}
+.sociais a
+{
+  margin: 0 auto;
+
+}
+.sociais a + a
+{
+  margin: 10px;
+
+}
+.opcoes
+{
+  display: block;
+  list-style: none;
+  margin-bottom: 300px;
+}
+.opcoes a
+{
+  margin: 0 auto;
+
+}
+/* PAGINA PERFIL */
+
+.posts
+{
+  margin: 0px 200px 30px 200px;
+  border-radius:20px;
+  background-color:white;
+  color:black;
+  transition: 0.3s;
+
+}
+.posts:hover
+{
+  /* box-shadow: 10px 5px 5px black; */
+  box-shadow: inset 0 0 1em gray, 0 0 1em black;
+  transform: translateX(10px);
+  transition: 0.3s;
+}

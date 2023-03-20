@@ -1,0 +1,100 @@
+{% extends"base.html" %}
+{% block content %}
+   
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="/">Blogger</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item ">
+          <a href="/contas" class="btn btn-outline-primary my-2 my-sm-0"> <i class="bi bi-pencil"></i> Editar Conta</a>
+          <a class="btn btn-outline-warning" href="{{url_for('logout')}}"><i class="bi bi-box-arrow-right"></i>  Sair</a>
+
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav><br><br><br>
+
+
+
+{% if current_user.is_authenticated %}   
+  <div class="logado">
+  <h1>Usuario(a): {{current_user.name}}</h1><br>
+<small class="text-muted">Página de Configurações de Postagem.</small>
+
+
+<h1 >Blogger | MSNjá</h1> 
+<h5>Natal-rn {{data_e_hora_em_texto}}</h5>
+
+
+
+<h2>{{data_e_hora_em_texto}}</h2>
+  
+<form action="{{ url_for('add_post')}}" method="post">
+  <h2>New Post</h2>
+  <br><label for="date">Data do post: </label>
+  <br><input id="date" type="date" name="date"><br><br>
+  <label for="hora">Horário do post: </label>
+  <br><input id="time" type="time" name="time"><br><br>
+  <label>Title:</label><br>
+  <input name="title"><br>
+  <label>Author</label><br>
+  <br><input name="author"><br>
+  <label>Content:</label><br>
+  <br><textarea name="content"  placeholder="Insira seu Post." cols="30" rows="10"></textarea><br><br>
+  
+
+  <input type="submit" value="postar">
+</form> 
+
+
+
+<hr>
+{% for post in posts %}
+<h5>Natal-rn {{date_Time}}</h5>
+<h3>{{post.title}}</h3>
+<p>{{post.content}}</p>
+<h5>Postado por: {{post.author}}</h5>
+<a href="{{ url_for('delete_post', id=post.id)}}" class="btn btn-danger my-2 my-sm-0"><i class="bi bi-trash3"></i>  Delete</a><br><br>
+<a href="{{ url_for('edit_post', id=post.id)}}" class="btn btn-warning my-2 my-sm-0"> <i class="bi bi-pencil"></i> Edit</a><br>
+
+<hr>
+
+
+{% endfor %}
+<div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+  <!-- <ol class="carousel-indicators">
+    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+  </ol> -->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <p>"Porque aquele que quiser salvar a sua vida, perdê-la-á, e quem perder a sua vida por amor de mim, achá-la-á", Jesus Cristo. </p>
+    </div>
+    <div class="carousel-item">
+      <p>"Se cheguei até aqui foi porque me apoiei no ombro dos gigantes", Isaac Newton.</p>
+    </div>
+    <div class="carousel-item">
+      <p>"Não fales aos ouvidos do tolo, porque desprezará a sabedoria das tuas palavras" Proverbios. </p>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endif %}
+{% endblock %}

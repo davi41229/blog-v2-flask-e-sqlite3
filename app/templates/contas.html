@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="#">Blogger</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item ">
+          <a href="/admin" class="btn btn-outline-primary my-2 my-sm-0"> <i class="bi bi-gear"></i> Admin</a>
+          <a class="btn btn-outline-warning" href="{{url_for('logout')}}"><i class="bi bi-box-arrow-right"></i>  Sair</a>
+
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav><br><br><br>
+
+{% if current_user.is_authenticated %}   
+    <div class="logado">
+    <h1>Bem vindo(a): {{current_user.name}}</h1>
+    <small class="text-muted">A página de  Configurações de Conta.</small>
+
+    <table class="table">
+    <h1>Opções de Usuarios</h1>
+    <thead class="table-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Hash</th>
+            <th>Ações</th>	
+        </tr>
+    </thead>
+    <br>
+    <tbody>
+        {% for e in contas %}
+        <tr>
+            <td>{{e.name}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.password}}</td>
+            <td class="btn">
+                <a href="/editar/{{e.id}}" class="btn btn-block btn-warning" ><i class="bi bi-pencil"></i></a> 	
+                <a href="/deletar/{{e.id}}" class="btn btn-block btn-danger"><i class="bi bi-trash3"></i> </a> 	
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div><br><br><br>
+{% endif %} 
+{% endblock %}

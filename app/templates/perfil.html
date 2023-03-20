@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="/">Blogger</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item ">
+          <a class="btn btn-outline-primary" href="{{url_for('logout')}}"><i class="bi bi-box-arrow-right"></i>  Sair</a> 
+          
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav><br><br><br>
+
+<main class="inicial">
+
+    
+    
+        {% if current_user.is_authenticated %}   
+        <div class="logado">
+        <h1>Usuario(a): {{current_user.name}}</h1>
+        <small class="text-muted">Bem Vindo A Página principal de Membro!</small>
+        <img src=""> 
+        <p>Obrigado por sua Inscrição!</p>
+
+        </div>
+        
+
+
+        <ul class="sociais ">
+            <p>Siga nossas redes socias!</p>
+            <li>
+                <a style="color:white;font-size:2.5rem;list-style:disc" href=""><i class="bi bi-facebook"></i></a>
+                <a style="color:white;font-size:2.5rem;" href=""><i class="bi bi-instagram"></i></a>
+            </li>
+            
+        </ul>
+        
+        <ul class="opcoes">
+            <p>Opções de Conta</p>
+            <li>
+                <a class="btn btn-warning" href="/contas"><i class="bi bi-gear"></i> Editar</a>
+                <a class="btn btn-warning" href="/admin"><i class="bi bi-gear"></i> Novo Post</a>
+            </li>      
+        </ul>
+    
+    {% else %} 
+    <div class="visitante">
+        <h1>Cadastro de Usuario com Python-Flask e Mysql</h1>
+        <p>Faça o seu Cadastro já!</p>
+        <a  class="btn btn-outline-success" href="/register"><i class="bi bi-person-plus"></i>  Cadastre-se</a><br> 
+        <br><a class="btn btn-outline-success" href="/login"><i class="bi bi-person"></i>  Ja tenho cadastro</a><!-- BOTAO PARA LOGAR --> 
+
+    </div>
+
+   
+    {% endif %} 
+</main>
+
+{% endblock  %}
