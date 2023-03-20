@@ -1,5 +1,5 @@
 ## Blogger simples em Flask
-<div><img src='https://www.criarsite.online/wp-content/uploads/2017/09/blog.png' alt='imagem blog'</img></div>
+<div style="width='30px';heigth='20px'"><img src='https://www.criarsite.online/wp-content/uploads/2017/09/blog.png' alt='imagem blog'</img></div>
 
 ## Com Tela Inicial e Administração
 
