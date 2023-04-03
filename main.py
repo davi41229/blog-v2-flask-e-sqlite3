@@ -1,5 +1,6 @@
 from app import app, db
 from app.controllers import default
+import os
 
 
 db.create_all()
