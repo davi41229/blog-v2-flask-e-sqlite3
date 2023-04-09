@@ -2,7 +2,7 @@
 body
 {
   margin: 0 auto;text-align: center;
-  background-image: linear-gradient(to left, black,green);
+  background-image: linear-gradient(to left, orange,green);
   color: white;
   font-family: 'Courier New', Courier, monospace;
   overflow-x: hidden
